@@ -49,6 +49,7 @@ $(document).keypress(function (e) {
       $(".search-bar input").val("");
     }
   }
+  actualizarLista()
 });
 
 $(".list-items").on("change", ".list-item-text input", (e) => {
