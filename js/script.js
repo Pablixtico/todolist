@@ -64,6 +64,7 @@ $(".list-items").on("change", ".list-item-text input", (e) => {
       .css({ "text-decoration": "line-through", color: "red" });
   } else {
     $(e.target).parent().css({ "text-decoration": "", color: "black" });
+    $('.list-items').prepend($(e.target).parent().parent())
   }
   actualizarLista();
 });
