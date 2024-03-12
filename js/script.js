@@ -1,12 +1,25 @@
 var storage;
 storage = JSON.parse(window.localStorage.getItem("1"));
 
+console.log(-window.localStorage.getItem("2"));
+
+
+
+
+
 
 $(storage).each((e, item) => {
   $(".list-items").append(
     `<div class="list-item"><div class="list-item-text"><input type="checkbox" name="li1" id="li1"><div class="text">${item}</div></div><span class="material-symbols-outlined cross">close</span></div>`
   );
 })
+let elements = $(".list-item-text input");
+if(window.localStorage.getItem("2") != 0){
+  elements.slice(-window.localStorage.getItem("2")).each((num, item) =>{
+    $(item).prop("checked", "true");
+    $(item).parent().css({ "text-decoration": "line-through", color: "red" });
+  })
+}
 
 $(".search-bar button").click((e) => {
   let text = $(".search-bar input").val();
@@ -51,6 +64,7 @@ $(".list-items").on("change", ".list-item-text input", (e) => {
   } else {
     $(e.target).parent().css({ "text-decoration": "", color: "black" });
   }
+  actualizarLista();
 });
 
 $(".delete-icon span").click(() => {
