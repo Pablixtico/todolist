@@ -1,3 +1,13 @@
+var storage;
+storage = JSON.parse(window.localStorage.getItem("1"));
+
+
+$(storage).each((e, item) => {
+  $(".list-items").append(
+    `<div class="list-item"><div class="list-item-text"><input type="checkbox" name="li1" id="li1"><div class="text">${item}</div></div><span class="material-symbols-outlined cross">close</span></div>`
+  );
+})
+
 $(".search-bar button").click((e) => {
   let text = $(".search-bar input").val();
   if (text) {
@@ -5,11 +15,14 @@ $(".search-bar button").click((e) => {
       `<div class="list-item"><div class="list-item-text"><input type="checkbox" name="li1" id="li1"><div class="text">${text}</div></div><span class="material-symbols-outlined cross">close</span></div>`
     );
     $(".search-bar input").val("");
+    actualizarLista()
   }
 });
 
+
 $(".list-items").on("click", "span.cross", (e) => {
   $(e.target).parent().remove();
+  actualizarLista();
 });
 
 $(document).keypress(function (e) {
@@ -27,6 +40,7 @@ $(document).keypress(function (e) {
 
 $(".list-items").on("change", ".list-item-text input", (e) => {
   if (e.target.checked) {
+    $('.list-items').append($(e.target).parent().parent())
     let audio = new Audio();
     audio.src = "/sounds/completed.mp3";
     audio.volume;
@@ -49,14 +63,29 @@ $(".delete-icon span").click(() => {
         x++;
     }
   });
-  
+
   if (res) {
+    window.localStorage.clear();
     $(".list-item").each((index, item) => {
       $(item).remove();
     });
+    actualizarLista();
     alert("You completed " + x + " tasks out of " + longitud);
-
   }
-
-
 });
+
+
+function actualizarLista(){
+  let items = [];
+  let x = 0;
+  $(".list-item-text").each((e, item) => {
+    items.push($(item).text())
+  })
+  $(".list-item input[type=checkbox]").each((pos, item) => {
+    if (item.checked) {
+        x++;
+    }
+  });
+  window.localStorage.setItem("2", x);
+  window.localStorage.setItem("1", JSON.stringify(items));
+}

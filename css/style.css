@@ -61,9 +61,13 @@ body {
     color: var(--secondary-txt);
 }
 
+.list-title h1{
+    font-size: clamp(25px,3vw,30px);
+}
+
 .list-title span {
     color: var(--secondary-color);
-    font-size: 25px;
+    font-size: 25px
 
 }
 
@@ -122,6 +126,7 @@ body {
     width: 100%;
     gap: 1rem;
     overflow-y: scroll;
+    
 
 
     border-radius: 2rem;
@@ -169,7 +174,7 @@ body {
 
 .list-item-text .text{
     display: flex;
-    text-wrap: wrap;
+    text-wrap:wrap;
 }
 
 .list-item span {
