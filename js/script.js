@@ -57,7 +57,7 @@ $(".list-items").on("change", ".list-item-text input", (e) => {
     $('.list-items').append($(e.target).parent().parent())
     let audio = new Audio();
     audio.src = "sounds/completed.mp3";
-    audio.volume;
+    audio.volume = 0.3;
     audio.play();
     $(e.target)
       .parent()
