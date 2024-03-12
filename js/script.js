@@ -24,7 +24,7 @@ if(window.localStorage.getItem("2") != 0){
 $(".search-bar button").click((e) => {
   let text = $(".search-bar input").val();
   if (text) {
-    $(".list-items").append(
+    $(".list-items").prepend(
       `<div class="list-item"><div class="list-item-text"><input type="checkbox" name="li1" id="li1"><div class="text">${text}</div></div><span class="material-symbols-outlined cross">close</span></div>`
     );
     $(".search-bar input").val("");
@@ -43,7 +43,7 @@ $(document).keypress(function (e) {
   var key = e.which;
   if (key == 13) {
     if (text) {
-      $(".list-items").append(
+      $(".list-items").prepend(
         `<div class="list-item"><div class="list-item-text"><input type="checkbox" name="li1">${text}</div><span class="material-symbols-outlined cross">close</span></div>`
       );
       $(".search-bar input").val("");
