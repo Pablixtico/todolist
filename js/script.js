@@ -55,7 +55,7 @@ $(".list-items").on("change", ".list-item-text input", (e) => {
   if (e.target.checked) {
     $('.list-items').append($(e.target).parent().parent())
     let audio = new Audio();
-    audio.src = "/sounds/completed.mp3";
+    audio.src = "sounds/completed.mp3";
     audio.volume;
     audio.play();
     $(e.target)
