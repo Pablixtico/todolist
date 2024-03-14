@@ -95,7 +95,6 @@ $(".delete-icon span").click(() => {
   });
 
   if (res) {
-    window.localStorage.clear();
     $(".list-item").each((index, item) => {
       $(item).remove();
     });

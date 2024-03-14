@@ -61,7 +61,7 @@ body {
 .list-title {
     display: flex;
     align-items: center;
-    width: 80%;
+    width: 86%;
     font-weight: 400;
     gap: 10px;
     color: var(--secondary-txt);
@@ -132,10 +132,6 @@ body {
     width: 100%;
     gap: 1rem;
     overflow-y: scroll;
-    
-
-
-    border-radius: 2rem;
     /* -webkit-box-shadow: 0px 0px 28px 0px rgba(0,0,0,0.1);
     -moz-box-shadow: 0px 0px 28px 0px rgba(0,0,0,0.1);
     box-shadow: 0px 0px 28px 0px rgba(0,0,0,0.1); */
@@ -237,7 +233,6 @@ body {
     display: flex;
     width: 86%;
     gap: 10px;
-    overflow: hidden;
     align-items: center;
 }
 
